@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "David\\AsynTask\\": "src/David/AsynTask"
+            "\\AsynTask\\": "src/AsynTask/AsynTask"
         }
     }
 }
