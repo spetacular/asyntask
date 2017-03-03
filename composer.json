@@ -1,0 +1,20 @@
+{
+    "name": "davidyan/asyntask",
+    "description": "A lightweight asynchronous queue manager, supporting real-time, timing, long-term, periodic tasks.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "david",
+            "email": "davidsp@foxmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "David\\AsynTask\\": "src/David/AsynTask"
+        }
+    }
+}
