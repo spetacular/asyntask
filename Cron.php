@@ -1,5 +1,6 @@
 <?php
 require './asyntask.class.php';
+define('ASYN_LOG_FILE','/tmp/task.log');
 asyn_shell();
 function asyn_shell(){
 		set_time_limit(0);
@@ -18,7 +19,7 @@ function asyn_shell(){
 			$command = $data['cmd'];
 			$cmdArgs = 'task_id/'.$data['id'];
 
-			$cmd = "/usr/bin/php ".$command .'/'.$cmdArgs." > /dev/null 2>&1 &";
+			$cmd = $command .'/'.$cmdArgs." > /dev/null 2>&1 &";
 
 			//执行命令
 			$output = '';
@@ -27,11 +28,10 @@ function asyn_shell(){
 
 			//纪录log
 			$output = implode("\n",$output);
-			$file = '/tmp/task.log';
 			$message = '['.date('Y-m-d H:i:s').']['.$cmd.']['.$return_var.']'.$output."\n";
 			$TaskModel->save_message($data['id'],array('ret'=>$message));
 			echo $message;
-			file_put_contents($file, $message, FILE_APPEND);
+			file_put_contents(ASYN_LOG_FILE, $message, FILE_APPEND);
 
 			if($return_var != 0){
 				exit;
