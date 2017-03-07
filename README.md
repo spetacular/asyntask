@@ -1,5 +1,16 @@
 # PHP异步任务队列管理器asyntask
 asyntask是一个轻量级异步任务队列管理器，支持实时，定时，长时和周期任务。
+
+## 项目由来
+
+本项目最初用于通知推送。例如用户发布评论，需要推送一条push给原作者。而到苹果的服务器的请求时间较长，如果等待苹果服务器的返回结果，则整个发布评论的接口的响应时间就太长了。因为推送push早1秒晚1秒对用户基本没影响，所以当用户发布评论时，只要数据到数据库，即可返回。与此同时创建一条异步任务，在1秒内给用户推送push。这样既保证了接口的响应速度，又不影响用户体验。该项目已经在线上环境运行1年多，执行了累计8千万条命令，运行稳定。
+
+## 优点
+* 异步执行
+集成管理后台，可视化操作
+代码集成，可编程
+## 缺点
+并非真正实时，秒级误差。
 # 安装
 ## 下载源码
 
@@ -50,7 +61,22 @@ chmod +x run.sh
 自带管理后台，可以轻松添加、编辑、删除、搜索任务。代码在resource/asynadmin里，请自行部署。
 [![管理后台截图](./resource/asynadmin.jpeg)](./resource/asynadmin.jpeg)
 ##编程方式
-可以集成到项目中。
+可以集成到项目中，完整使用示例建`test.php`。
+例如添加周期任务：
+```
+$name = '循环任务';
+$cmd = 'php abc.php';
+$params = array(
+	'params'=>1
+);
+$timeOptions = array(
+	'day'=>1,
+	'hour'=>2,
+	'minute'=>3
+);
+$task->add_loop_task($name,$cmd,$params,$timeOptions);
+```
+
 
 # asyntask
 A lightweight asynchronous queue manager, supporting real-time, timing, long-term, periodic tasks.
