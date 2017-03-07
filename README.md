@@ -20,8 +20,33 @@ git clone https://github.com/spetacular/asyntask.git
    }
 ```
    就可以了。
-# 管理后台
+
+# 配置
+1. asyntask的数据默认存储在Mysql数据库里，因此需要更改config.php里的配置：
+
+```
+	'DB_HOST'=>'127.0.0.1',
+	'DB_NAME' => 'asyntask',
+	'DB_USER' => 'root',
+	'DB_PWD' => '',
+	'DB_PORT' => '3306',
+	'DB_CHARSET' => 'utf8mb4',
+```
+2. 配置健康检查脚本
+run.sh定期检查异步任务的运行状况，如果挂了，将重启asyn.php脚本。
+```
+chmod +x run.sh
+```
+然后配置CronTab：
+```
+* * * * * root  path-to/run.sh  > /dev/null 2>&1
+```
+# 使用方式
+##管理后台
 自带管理后台，可以轻松添加任务。
+
+##编程方式
+可以集成到项目中。
 
 # asyntask
 A lightweight asynchronous queue manager, supporting real-time, timing, long-term, periodic tasks.

@@ -19,7 +19,12 @@ function asyn_shell(){
 			$command = $data['cmd'];
 			$cmdArgs = 'task_id/'.$data['id'];
 
-			$cmd = $command .'/'.$cmdArgs." > /dev/null 2>&1 &";
+			if(empty($data['params'])){
+				$cmd = $command;
+			}else{
+				$cmd = $command .'/'.$cmdArgs;
+			}
+			$cmd .= ' >> '.ASYN_LOG_FILE.' 2>&1 &';
 
 			//执行命令
 			$output = '';
