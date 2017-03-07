@@ -64,7 +64,7 @@ chmod +x run.sh
 可以集成到项目中，完整使用示例建`test.php`。
 例如添加周期任务：
 ```
-$name = '循环任务';
+$name = '周期任务';
 $cmd = 'php abc.php';
 $params = array(
 	'params'=>1
@@ -76,7 +76,13 @@ $timeOptions = array(
 );
 $task->add_loop_task($name,$cmd,$params,$timeOptions);
 ```
+## 周期任务示例
 
+每天执行：day 1 hour 0 minute 0 每天零点执行
+
+每小时执行：day 0 hour 1 minute 5 每小时的5分执行
+
+每隔若干分钟执行：day 0 hour 0 minute 5 每隔5分钟执行
 
 # asyntask
 A lightweight asynchronous queue manager, supporting real-time, timing, long-term, periodic tasks.
