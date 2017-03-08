@@ -71,7 +71,7 @@ chmod +x run.sh
 ```
 然后配置CronTab。运行`crontab -e`，然后添加一行：
 ```
-* * * * * root  path-to/run.sh  > /dev/null 2>&1
+* * * * *  path-to/run.sh  > /dev/null 2>&1
 ```
 # 使用方式
 ##管理后台
