@@ -34,7 +34,20 @@ git clone https://github.com/spetacular/asyntask.git
        }
    }
 ```
-   就可以了。
+
+然后执行`composer install`。调用示例如下：
+```
+include './vendor/autoload.php';
+$task = new AsynTask\Task();
+
+//添加单次任务
+$name = '单次任务';
+$cmd = 'php abcd.php';
+$params = array(
+	'params'=>1
+);
+$task->add_once_task($name,$cmd,$params);
+```
 
 # 配置
 1.asyntask的数据默认存储在Mysql数据库里，因此需要更改config.php里的配置：
