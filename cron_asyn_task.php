@@ -1,11 +1,12 @@
 <?php
-require './asyntask.class.php';
+require './src/AsynTask/Task.php';
+
 define('ASYN_LOG_FILE','/tmp/task.log');
 asyn_shell();
 function asyn_shell(){
 		set_time_limit(0);
 		//取出任务
-		$TaskModel = new AsynTask();
+		$TaskModel = new \AsynTask\Task();
 		do{
 			$data = $TaskModel->get_task();
 			//如果没有要处理的任务，就等待些时间吧
