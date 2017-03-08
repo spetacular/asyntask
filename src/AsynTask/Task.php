@@ -1,7 +1,8 @@
 <?php
-require_once('./function.php');
-require_once './src/AsynTask/Mysql/TaskModel.class.php';
-class AsynTask
+namespace AsynTask;
+require_once(__DIR__.'/function.php');
+require_once(__DIR__.'/Mysql/DataModel.class.php');
+class Task
 {
 	const TYPE_ONCE = "once";//单次执行
 	const TYPE_TIME = "time";//定时执行
@@ -9,7 +10,7 @@ class AsynTask
 	const TYPE_LONG = "long";//长时间执行
 	private $taskmodel = NULL;
 	public function __construct(){
-		$this->taskmodel = new AsynTask\Mysql\TaskModel();
+		$this->taskmodel = new \AsynTask\Mysql\DataModel();
 	}
 
 	public function add_once_task($name,$cmd,$params){

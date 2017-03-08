@@ -1,7 +1,7 @@
 <?php
-require './asyntask.class.php';
+require './src/AsynTask/Task.php';
 
-$task = new AsynTask();
+$task = new \AsynTask\Task();
 
 //添加单次任务
 $name = '单次任务';
