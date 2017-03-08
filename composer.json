@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "\\AsynTask\\": "src/AsynTask/AsynTask"
+            "\\AsynTask\\": "src/AsynTask/Task"
         }
     }
 }

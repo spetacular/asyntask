@@ -1,12 +1,12 @@
 <?php
 namespace AsynTask\Mysql;
 
-class TaskModel {
+class DataModel {
 	private $db = NULL;
 	private $table = 'asyntask';
 	public function __construct(){
 		if($this->db == NULL){
-			$dbConfig = include('./config.php');
+			$dbConfig = include(__DIR__.'/config.php');
 			$dbString = sprintf('mysql:host=%s;dbname=%s;charset=%s',$dbConfig['DB_HOST'],$dbConfig['DB_NAME'],$dbConfig['DB_CHARSET']);
 			try{
 				$this->db = new \PDO($dbString, $dbConfig['DB_USER'], $dbConfig['DB_PWD']);
