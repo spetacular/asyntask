@@ -19,11 +19,12 @@ asyntask是一个轻量级异步任务队列管理器，支持实时，定时，
 ## 下载源码
 
 直接使用：
-
+```
 git clone https://github.com/spetacular/asyntask.git
+```
 命令下载到本地。
 
-也可以点击 https://github.com/spetacular/asyntask/archive/master.zip 下载最新内容的压缩包，然后解压。
+也可以点击 [https://github.com/spetacular/asyntask/archive/master.zip](https://github.com/spetacular/asyntask/archive/master.zip) 下载最新内容的压缩包，然后解压。
 ## 通过 composer 来安装
 
    在你的 composer 项目中的 composer.json 文件中，添加这部分：
@@ -74,11 +75,15 @@ chmod +x run.sh
 * * * * *  path-to/run.sh  > /dev/null 2>&1
 ```
 # 使用方式
-##管理后台
+
+## 管理后台
+
 自带管理后台，可以轻松添加、编辑、删除、搜索任务。代码在[https://github.com/spetacular/asynadmin](https://github.com/spetacular/asynadmin)，请自行部署。
 [![管理后台截图](https://github.com/spetacular/asynadmin/raw/master/asynadmin.jpeg)](https://github.com/spetacular/asynadmin/raw/master/asynadmin.jpeg)
-##编程方式
-可以集成到项目中，完整使用示例建`test.php`。
+
+## 编程方式
+
+可以集成到项目中，完整使用示例见`test.php`。
 例如添加周期任务：
 ```
 $name = '周期任务';
