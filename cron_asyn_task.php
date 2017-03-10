@@ -1,5 +1,6 @@
 <?php
-require './src/AsynTask/Task.php';
+define("ASYN_BASE_DIR",__DIR__);
+require ASYN_BASE_DIR.'/src/AsynTask/Task.php';
 
 define('ASYN_LOG_FILE','/tmp/task.log');
 asyn_shell();
