@@ -4,7 +4,7 @@ CREATE TABLE `asyntask` (
   `available` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否启用.1为启用，0为不启用',
   `type` enum('once','time','loop','long') NOT NULL DEFAULT 'once' COMMENT '任务类型：once即时任务；time定时任务；loop周期任务；long长时任务',
   `name` varchar(50) NOT NULL DEFAULT '' COMMENT '任务名称',
-  `cmd` text NOT NULL DEFAULT '' COMMENT '任务脚本',
+  `cmd` text NOT NULL COMMENT '任务脚本',
   `params` text NOT NULL COMMENT '参数',
   `lastrun` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '上次运行时间',
   `nextrun` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '下次运行时间',
